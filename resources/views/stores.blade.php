@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +9,9 @@
     <title>Stores</title>
 </head>
 <body>
-<h1> The store choosed by you is {{$storeId}} </h1>
+<h1> The product is avaiable in these stores:- {{$products->store1}}  {{$products->store2}} </h1>
 
-<p> Their are is {{$offers}} </p>
+<p> The product you want is {{$products->name}} and the price is {{$products->price}} </p>
     
 </body>
 </html>

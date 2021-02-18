@@ -20,14 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/stores', function () {
-    $valueReceived = request("id");
-    $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
-    if (!array_key_exists($valueReceived, $offers)) {
-        abort(404);
-        }
-    return view("stores", ["storeId" => $valueReceived, "offers" => $offers[$valueReceived]]);
-   });
+// Route::get('/stores', function () {
+//     $valueReceived = request("id");
+//     $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
+//     if (!array_key_exists($valueReceived, $offers)) {
+//         abort(404);
+//         }
+//     return view("stores", ["storeId" => $valueReceived, "offers" => $offers[$valueReceived]]);
+//    });
 
 Route::get('/stores/{name}', function ($name) {
     $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
@@ -38,3 +38,16 @@ Route::get('/stores/{name}', function ($name) {
    });
 
 Route::get('/singleStore/{product}', [StoresController::class, "findProductPrice"]);
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Route::get('/stores', function () {
+    $valueReceived = request("id");
+    $products = \DB::table('product')->where('name', $valueReceived)->first();
+   // $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
+    // if (!array_key_exists($valueReceived, $offers)) {
+    //     abort(404);
+    //     }
+    //dd($products);
+    return view("stores", ["products" => $products]);
+   });
