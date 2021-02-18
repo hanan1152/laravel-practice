@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/stores', function () {
+    $valueReceived = request("id");
+    $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
+    return view("stores", ["storeId" => $valueReceived, "offers" => $offers[$valueReceived]]);
+   });
