@@ -9,9 +9,9 @@
     <title>Stores</title>
 </head>
 <body>
-<h1> The product is avaiable in these stores:- {{$products->store1}}  {{$products->store2}} </h1>
+<h1> The product is avaiable in these stores </h1>
 
 <p> The product you want is {{$products->name}} and the price is {{$products->price}} </p>
     
 </body>
-</html>
+</html> 

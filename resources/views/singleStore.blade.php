@@ -7,7 +7,7 @@
     <title>Single Store Price List</title>
 </head>
 <body>
-<h1> The product choosed is {{$product-> name}} </h1>
+<h1> The product choosed is {{$product->name}} </h1>
 
 <p> Their are is {{$product->price}}  {{$product->quantity}} </p>
     

@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Grocery;
 
 class StoresController extends Controller
 {
     public function findProductPrice($product){
-        // $price = ["apple" => 4, "mango" => 5];
-        $products = \DB::table('product')->Where('name', $product)->first();
-        // if (!array_key_exists($product, $price)) {
-        // abort(404);
-        // }
-      //  dd($products);
-    
-    return view('singleStore', ["product" => $products]);
+        //let me see i did in my project i belive
+        $pd = Grocery::where('name', $product)->firstOrFail();
+      //  dd($pd);//its the naming convention error bcz laravel main table names plural ho jatay hain u have to use protected
+        //
+
+        return view('singleStore', ["product" => $pd]);
     }
    
 }

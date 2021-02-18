@@ -43,7 +43,7 @@ Route::get('/', function () {
 //////////////////////////////////////////////////////////////////////////////////////////
 Route::get('/stores', function () {
     $valueReceived = request("id");
-    $products = \DB::table('product')->where('name', $valueReceived)->first();
+    $products = \DB::table('grocery')->where('name', $valueReceived)->first();
    // $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
     // if (!array_key_exists($valueReceived, $offers)) {
     //     abort(404);
@@ -52,4 +52,6 @@ Route::get('/stores', function () {
     return view("stores", ["products" => $products]);
    });
 
-   Route::get('/singleStore/{product}', [StoresController::class, "findProductPrice"]);
+
+
+Route::get('/singleStore/{product}', [StoresController::class, "findProductPrice"]);
