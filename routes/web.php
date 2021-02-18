@@ -22,3 +22,8 @@ Route::get('/stores', function () {
     $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
     return view("stores", ["storeId" => $valueReceived, "offers" => $offers[$valueReceived]]);
    });
+
+Route::get('/stores/{name}', function ($name) {
+    $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
+    return view("stores", ["storeId" => $name, "offers" => $offers[$name]]);
+   });
