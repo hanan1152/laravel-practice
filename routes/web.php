@@ -29,15 +29,15 @@ Route::get('/', function () {
 //     return view("stores", ["storeId" => $valueReceived, "offers" => $offers[$valueReceived]]);
 //    });
 
-Route::get('/stores/{name}', function ($name) {
-    $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
-    if (!array_key_exists($name, $offers)) {
-        abort(404);
-        }
-    return view("stores", ["storeId" => $name, "offers" => $offers[$name]]);
-   });
+// Route::get('/stores/{name}', function ($name) {
+//     $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
+//     if (!array_key_exists($name, $offers)) {
+//         abort(404);
+//         }
+//     return view("stores", ["storeId" => $name, "offers" => $offers[$name]]);
+//    });
 
-Route::get('/singleStore/{product}', [StoresController::class, "findProductPrice"]);
+// Route::get('/singleStore/{product}', [StoresController::class, "findProductPrice"]);
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -51,3 +51,5 @@ Route::get('/stores', function () {
     //dd($products);
     return view("stores", ["products" => $products]);
    });
+
+   Route::get('/singleStore/{product}', [StoresController::class, "findProductPrice"]);
