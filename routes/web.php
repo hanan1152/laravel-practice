@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\StoresController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,3 +36,5 @@ Route::get('/stores/{name}', function ($name) {
         }
     return view("stores", ["storeId" => $name, "offers" => $offers[$name]]);
    });
+
+Route::get('/singleStore/{product}', [StoresController::class, "findProductPrice"]);
