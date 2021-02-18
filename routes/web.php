@@ -20,10 +20,16 @@ Route::get('/', function () {
 Route::get('/stores', function () {
     $valueReceived = request("id");
     $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
+    if (!array_key_exists($valueReceived, $offers)) {
+        abort(404);
+        }
     return view("stores", ["storeId" => $valueReceived, "offers" => $offers[$valueReceived]]);
    });
 
 Route::get('/stores/{name}', function ($name) {
     $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
+    if (!array_key_exists($name, $offers)) {
+        abort(404);
+        }
     return view("stores", ["storeId" => $name, "offers" => $offers[$name]]);
    });
