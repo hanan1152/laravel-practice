@@ -54,4 +54,10 @@ Route::get('/stores', function () {
 
 
 
-Route::get('/singleStore/{product}', [StoresController::class, "findProductPrice"]);
+// Route::get('/singleStore/{product}', [StoresController::class, "findProductPrice"]);
+
+Route::get('/singleStore', function () {
+    return view('singleStore');
+})->name('singleStore');
+
+Route::post('/singleStore/submit', [StoresController::class, "findProductPrice"])->name('OrderSubmissionDone');
