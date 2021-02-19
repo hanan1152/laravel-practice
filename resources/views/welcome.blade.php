@@ -10,6 +10,11 @@
 @extends('layout')
 @section('content')
     <div class="container">
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
          <h1>Home Page</h1>
          <p> Welcome to the home Page </p>
     </div>

@@ -16,9 +16,9 @@ use App\Http\Controllers\StoresController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/stores', function () {
 //     $valueReceived = request("id");
@@ -43,7 +43,7 @@ Route::get('/', function () {
 //////////////////////////////////////////////////////////////////////////////////////////
 Route::get('/stores', function () {
     $valueReceived = request("id");
-    $products = \DB::table('grocery')->where('name', $valueReceived)->first();
+    $products = \DB::table('groceries')->where('name', $valueReceived)->first();
    // $offers = ["lulu" => "no Promotion", "spar" => "50% off"];
     // if (!array_key_exists($valueReceived, $offers)) {
     //     abort(404);
@@ -56,8 +56,15 @@ Route::get('/stores', function () {
 
 // Route::get('/singleStore/{product}', [StoresController::class, "findProductPrice"]);
 
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
 Route::get('/singleStore', function () {
     return view('singleStore');
 })->name('singleStore');
 
 Route::post('/singleStore/submit', [StoresController::class, "findProductPrice"])->name('OrderSubmissionDone');
+
+Route::get('/singleStore/index', [StoresController::class, "index"])->name('productIndex');
+
